@@ -1,6 +1,25 @@
 .main {
     background-color: aliceblue;
+    display: grid;
+    grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px 100px;
 }
+
+.head {
+    background-color: blanchedalmond;
+    grid-area: 1 / 1 / 2 / 12;
+}
+
+.listUncompleted {
+    background-color: bisque;
+    grid-area: 3 / 1 / 7 / 12;
+}
+
+.listCompleted {
+    background-color: cornflowerblue;
+    grid-area: 8 / 1 / 12 / 12;
+}
+
 
 .listRow {
     display: flex;
@@ -16,10 +35,9 @@
     margin: 0px 5px 2px 30px;
 }
 
-
-
 .button {
     margin: 5px 5px 5px 35px;
     background-color: aquamarine;
     display: inline-block;
 }
+

@@ -28,26 +28,46 @@ export default function TodoList() {
 
   return (
     <div>
-      <label> Add new task:
-          <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)}/>
-          <button type="submit" value="Add" onClick={handleSubmit} disabled={newTask.length === 0}>Add</button>
-      </label>
-      <div className={styles.main}>
+      <div className={styles.head}>
+        <label> Add new task:
+            <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)}/>
+            <button type="submit" value="Add" onClick={handleSubmit} disabled={newTask.length === 0}>Add</button>
+        </label>
+      </div>
+      <div className={styles.listUncompleted}>
+        <h2>not completed</h2>
         <ul>
           {items.map((item, idx) => {
-            return (
-              <div key={`${item.id}-div`} className={styles.listRow}>
+              return (
+                <div key={`${item.id}-div`} className={styles.listRow}>
+                  <input key={`${item.id}-checkbox`} type="checkbox" 
+                    onClick={(e) => handleCheckbox(e, idx)}
+                    />
+                  <li key={`${item}-list`} className={item.completed? styles.checked : styles.unchecked}>
+                    {item.text}
+                  </li>
+                </div>
+              )
+            })}
+        </ul>
+      </div>
+      <div className={styles.listCompleted}>
+        <h2>completed</h2>
+      <ul>
+          {items.map((item, idx) => {
+              return (
+                <div key={`${item.id}-div`} className={styles.listRow}>
                 <input key={`${item.id}-checkbox`} type="checkbox" 
                   onClick={(e) => handleCheckbox(e, idx)}
-                />
+                  />
                 <li key={`${item}-list`} className={item.completed? styles.checked : styles.unchecked}>
                   {item.text}
                 </li>
               </div>
             );
           })}
-        </ul>
-      </div>
+          </ul>
+          </div>
     </div>
   );
 }
