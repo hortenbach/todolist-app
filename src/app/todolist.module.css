@@ -1,0 +1,25 @@
+.main {
+    background-color: aliceblue;
+}
+
+.listRow {
+    display: flex;
+    list-style: none;
+}
+
+.checked {
+    margin: 0px 5px 2px 30px;
+    text-decoration: line-through;
+}
+
+.unchecked {
+    margin: 0px 5px 2px 30px;
+}
+
+
+
+.button {
+    margin: 5px 5px 5px 35px;
+    background-color: aquamarine;
+    display: inline-block;
+}
